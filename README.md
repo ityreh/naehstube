@@ -24,6 +24,7 @@ The Roadmap describes upcoming features for the nexte releases.
 ### MVP Nähstube-1.0.0
 
 * Navigation
+* Admin
 * Products
 * Saisons
 * Cart
@@ -52,7 +53,38 @@ Please make sure to update tests as appropriate.
 
 ### Environment Setup
 
+For local development you need a Python environment (e.g. virtualenv) with the required packages. In addition to that you need a PostgreSQL database with test data.
 
+#### Virtualenv
+
+    pip install virtualenv
+    mkdir ~/.virtualenv
+    virtualenv -p python3 ~/.virtualenv/naehstube
+    source ~/.virtualenv/naehstube/bin/activate
+
+#### Requirements
+
+You can install the required packages with the requirements.txt file.
+
+    pip install -r requirements/local.txt
+
+#### PostgreSQL
+
+
+
+### Django
+
+#### Run on local test server
+
+To run the platform on a local test server you can use manage.py with the local configuration.
+
+    python manage.py runserver --settings=config.settings.local
+
+#### Add a new app
+
+If you want to add a new app, you can use the django-admin script inside the src folder.
+
+    django-admin startapp my_app
 
 ## Authors and acknowledgement
 

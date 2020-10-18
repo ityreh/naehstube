@@ -9,6 +9,14 @@ Nähstube is a Online-Platform for self-sewn products.
 
 Installation instructions are coming soon when the MVP is released.
 
+### Configuration
+
+You can configure the platfrom via environment variables.
+
+| Environment Variable  | Description                   | Required |
+| :-------------------- | :---------------------------: | -------: |
+|  NAEHSTUBE_SECRET_KEY | Secret key for the django app | Y        |
+
 ## Usage
 
 If you want to use this source code as the basis for your own platofrm, feel free to fork it. Please notice the license agreements and make contributions to the code base.

@@ -1,3 +1,6 @@
+
+# settings/base.py
+
 """
 Django settings for naehstube project.
 
@@ -10,17 +13,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def get_env_variable(var_name):
+    '''Get the environment variable or return exception.'''
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(var_name)
+        raise ImproperlyConfigured(error_msg)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_1_7_c*0gj)@$&isuqgukq(@rhhozlyv(*imh6y3gyo8qfy5y$'
+
+SECRET_KEY = get_env_variable('NAEHSTUBE_SECRET_KEY')
 
 ALLOWED_HOSTS = []
 

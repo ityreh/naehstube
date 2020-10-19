@@ -16,6 +16,11 @@ You can configure the platfrom via environment variables.
 | Environment Variable  | Description                   | Required |
 | :-------------------- | :---------------------------: | -------: |
 |  NAEHSTUBE_SECRET_KEY | Secret key for the django app | Y        |
+|  DATABASE_NAME        | Database name                 | Y        |
+|  DATABASE_USER        | Database user                 | Y        |
+|  DATABASE_PASSWORD    | Database password of the user | Y        |
+|  DATABASE_HOST        | Database host                 | Y        |
+|  DATABASE_PORT        | Database port                 | Y        |
 
 ## Usage
 
@@ -78,7 +83,12 @@ You can install the required packages with the requirements.txt file.
 
 #### PostgreSQL
 
+You need to setup a PostgreSQL database server and configure the app accordingly as listed in the configuration section. When the setup is done you can make the migrations.
 
+    python manage.py makemigrations --settings=config.settings.local
+    python manage.py migrate --settings=config.settings.local
+
+Do these migrations every time you create a new app or model.
 
 ### Django
 
